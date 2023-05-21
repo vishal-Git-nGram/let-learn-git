@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Picker Example</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+</head>
+<body>
+    <h1>Date Picker Example</h1>
+    <form id="myForm" onsubmit="return validateForm()">
+        <label for="startDate">Start Date:</label>
+        <input type="text" id="startDate" name="startDate" placeholder="DMonthYy" required>
+
+        <label for="endDate">End Date:</label>
+        <input type="text" id="endDate" name="endDate" placeholder="DMonthYy" required>
+
+        <label for="status">Status:</label>
+        <select id="status" name="status" required>
+            <option value="Registered" selected>Registered</option>
+          
+        </select>
+
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            // Initialize datepicker for start date and end date fields
+            $( "#startDate" ).datepicker();
+            $( "#endDate" ).datepicker();
+        } );
+
+        function validateForm() {
+            // Check that all fields are filled in
+            var startDate = document.forms["myForm"]["startDate"].value;
+            var endDate = document.forms["myForm"]["endDate"].value;
+            var status = document.forms["myForm"]["status"].value;
+
+            if (startDate == "" || endDate == "" || status == "") {
+                alert("All fields must be filled in");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
